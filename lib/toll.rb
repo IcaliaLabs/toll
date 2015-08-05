@@ -25,5 +25,5 @@ module Toll
 end
 
 require "toll/version"
-require "toll/authenticable"
+require "toll/controllers/authenticable"
 require "toll/hooks"

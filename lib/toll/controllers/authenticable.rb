@@ -1,7 +1,8 @@
 module Toll
-  module Authenticable
+  module Controllers
+    module Authenticable
 
-    protected
+      protected
 
       def authenticate!
         authenticate_with_token || render_unauthorized
@@ -15,16 +16,8 @@ module Toll
 
       def authenticate_with_token
         authenticate_with_http_token do |token, options|
-          # Token token=2a4s5d6ft7ybiu; email=email@example.com
-          user_email = options[:email]
 
-          {}.tap do |authentication_keys|
-            Toll.authentication_keys.each do |key|
-              authentication_keys[key] = options[key]
-            end
-          end
-
-          user = User.find_by(authentication_keys)
+          user = User.find_by(authentication_keys(options))
 
           if user && secure_token_compare(user.send(Toll.authentication_token_attribute_name), token)
             @current_user = user
@@ -36,7 +29,7 @@ module Toll
         @current_user
       end
 
-    private
+      private
 
       # constant-time comparison algorithm to prevent timing attacks
       # Thanks Devise
@@ -48,5 +41,15 @@ module Toll
         b.each_byte { |byte| res |= byte ^ l.shift }
         res == 0
       end
+
+      def authentication_keys(options = {})
+        {}.tap do |authentication_keys|
+          Toll.authentication_keys.each do |key|
+            authentication_keys[key] = options[key]
+          end
+        end
+      end
+    end
   end
 end
+
