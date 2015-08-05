@@ -23,7 +23,7 @@ module ActiveRecord
       end
 
       def inject_toll_content
-        content = %q{  toll}
+        content = %q{  tollify}
 
         class_path = if namespaced?
                        class_name.to_s.split("::")
