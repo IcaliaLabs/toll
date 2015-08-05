@@ -29,6 +29,10 @@ module Toll
         @current_user
       end
 
+      def authenticated?
+        current_user.present?
+      end
+
       private
 
       # constant-time comparison algorithm to prevent timing attacks
