@@ -99,7 +99,7 @@ class SessionsController < ApplicationController
     # => user
     # => nil
 
-    if user.valid_password? user_password
+    if user && user.valid_password?(user_password)
     	# the authenticate_with_token is provided by the Toll gem
       user.authenticate_with_token
       render json: user, status: :ok
