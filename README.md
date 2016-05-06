@@ -1,3 +1,7 @@
+[![Code Climate](https://codeclimate.com/github/IcaliaLabs/toll/badges/gpa.svg)](https://codeclimate.com/github/IcaliaLabs/toll)
+[![Test Coverage](https://codeclimate.com/github/IcaliaLabs/toll/badges/coverage.svg)](https://codeclimate.com/github/IcaliaLabs/toll/coverage)
+[![Issue Count](https://codeclimate.com/github/IcaliaLabs/toll/badges/issue_count.svg)](https://codeclimate.com/github/IcaliaLabs/toll)
+
 # Toll
 
 ![Toll](http://cdn2.hubspot.net/hub/42741/file-29805357-jpg/images/toll-booth1-resized-600.jpg)
