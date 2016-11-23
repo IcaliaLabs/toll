@@ -12,6 +12,10 @@ module Toll
   mattr_accessor :authentication_token_length
   @@authentication_token_length = 64
 
+  mattr_accessor :ensure_authentication_token_on
+  @@ensure_authentication_token_on = [:create]
+
+
   # Method to configure Toll
   def self.setup
     yield self

@@ -10,7 +10,7 @@ module Toll
     module ClassMethods
 
       def tollify
-        before_validation :ensure_authentication_token!
+        before_validation :ensure_authentication_token!, on: Toll.ensure_authentication_token_on
 
         validates Toll.authentication_token_attribute_name, presence: true,
                                                             uniqueness: true
